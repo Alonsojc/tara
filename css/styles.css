@@ -821,10 +821,100 @@ button {
     padding: 100px 0;
 }
 
+.services__category {
+    margin-bottom: 48px;
+}
+
+.services__category-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--gray-100);
+}
+
+.services__category-title svg {
+    color: var(--primary-600);
+    flex-shrink: 0;
+}
+
 .services__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
+}
+
+.services__grid--currencies {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.services__grid--values {
+    margin-top: 48px;
+}
+
+/* Currency / Gold Chips */
+.currency-chip {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 20px;
+    background: #fff;
+    border: 1px solid var(--gray-100);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+}
+
+.currency-chip:hover {
+    border-color: var(--primary-200);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.currency-chip--gold {
+    border-color: #fef3c7;
+    background: linear-gradient(135deg, #fffbeb, #fff);
+}
+
+.currency-chip--gold:hover {
+    border-color: #fbbf24;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.15);
+}
+
+.currency-chip__flag {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.currency-chip__flag--usd { background: linear-gradient(135deg, #1a5276, #2e86c1); }
+.currency-chip__flag--eur { background: linear-gradient(135deg, #1a237e, #3949ab); }
+.currency-chip__flag--cad { background: linear-gradient(135deg, #b71c1c, #e53935); }
+.currency-chip__flag--aud { background: linear-gradient(135deg, #0d47a1, #1565c0); }
+.currency-chip__flag--gbp { background: linear-gradient(135deg, #1b5e20, #2e7d32); }
+.currency-chip__flag--chf { background: linear-gradient(135deg, #c62828, #e53935); }
+.currency-chip__flag--jpy { background: linear-gradient(135deg, #b71c1c, #e8e8e8); color: #b71c1c; }
+.currency-chip__flag--cny { background: linear-gradient(135deg, #c62828, #e53935); }
+.currency-chip__flag--gold { background: linear-gradient(135deg, #b45309, #d97706); }
+
+.currency-chip__name {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--gray-800);
 }
 
 .service-card {
@@ -1569,6 +1659,10 @@ button {
     }
 
     .services__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .services__grid--currencies {
         grid-template-columns: repeat(2, 1fr);
     }
 
