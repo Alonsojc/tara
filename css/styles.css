@@ -1605,6 +1605,24 @@ button {
     color: #fff;
 }
 
+.careers__cv-note {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+.careers__cv-note a {
+    color: #60a5fa;
+    text-decoration: underline;
+}
+
+.careers__cv-note a:hover {
+    color: #93bbfc;
+}
+
 .careers__file-input {
     cursor: pointer;
 }
@@ -1754,6 +1772,14 @@ button {
 @keyframes whatsappPulse {
     0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
     50% { box-shadow: 0 4px 30px rgba(37, 211, 102, 0.6), 0 0 0 10px rgba(37, 211, 102, 0.1); }
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.spinner {
+    animation: spin 1s linear infinite;
 }
 
 /* ============================================

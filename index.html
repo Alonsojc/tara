@@ -616,6 +616,10 @@
                 </div>
                 <div class="contact__form-wrapper">
                     <form class="contact__form" id="contactForm">
+                        <input type="hidden" name="access_key" value="TU_ACCESS_KEY_AQUI">
+                        <input type="hidden" name="subject" value="Nuevo mensaje - Centro Cambiario Tara">
+                        <input type="hidden" name="from_name" value="Centro Cambiario Tara Web">
+                        <input type="checkbox" name="botcheck" style="display: none;">
                         <div class="form-group">
                             <label for="name">Nombre completo</label>
                             <input type="text" id="name" name="name" required placeholder="Tu nombre">
@@ -669,7 +673,11 @@
                 </div>
                 <div class="careers__form-wrapper">
                     <form class="careers__form" id="careersForm">
-                        <h3 class="careers__form-title">Envía tu CV</h3>
+                        <input type="hidden" name="access_key" value="TU_ACCESS_KEY_AQUI">
+                        <input type="hidden" name="subject" value="Nueva solicitud de empleo - Centro Cambiario Tara">
+                        <input type="hidden" name="from_name" value="Centro Cambiario Tara Empleo">
+                        <input type="checkbox" name="botcheck" style="display: none;">
+                        <h3 class="careers__form-title">Envía tu solicitud</h3>
                         <div class="form-group">
                             <label for="careerName">Nombre completo</label>
                             <input type="text" id="careerName" name="name" required placeholder="Tu nombre">
@@ -694,8 +702,10 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="careerCV">Adjuntar CV (PDF)</label>
-                            <input type="file" id="careerCV" name="cv" accept=".pdf,.doc,.docx" class="careers__file-input">
+                            <p class="careers__cv-note">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                                Envía tu CV a <a href="mailto:info@centrocambiariotara.com?subject=CV%20-%20Solicitud%20de%20empleo">info@centrocambiariotara.com</a>
+                            </p>
                         </div>
                         <div class="form-group">
                             <label for="careerMessage">Mensaje (opcional)</label>

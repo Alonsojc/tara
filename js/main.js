@@ -278,24 +278,46 @@ function animateCounter(element, target) {
 function initContactForm() {
     const form = document.getElementById('contactForm');
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         const btn = form.querySelector('button[type="submit"]');
         const originalText = btn.innerHTML;
 
         btn.innerHTML = `
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-            Mensaje enviado
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="spinner"><circle cx="12" cy="12" r="10" stroke-dasharray="31.4" stroke-dashoffset="10"/></svg>
+            Enviando...
         `;
-        btn.style.background = '#22c55e';
         btn.disabled = true;
+
+        try {
+            const formData = new FormData(form);
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            });
+            const data = await response.json();
+
+            if (data.success) {
+                btn.innerHTML = `
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                    Mensaje enviado
+                `;
+                btn.style.background = '#22c55e';
+                form.reset();
+            } else {
+                throw new Error(data.message || 'Error al enviar');
+            }
+        } catch (err) {
+            btn.innerHTML = `Error al enviar. Intenta de nuevo.`;
+            btn.style.background = '#ef4444';
+            console.error('Error en formulario de contacto:', err);
+        }
 
         setTimeout(() => {
             btn.innerHTML = originalText;
             btn.style.background = '';
             btn.disabled = false;
-            form.reset();
         }, 3000);
     });
 }
@@ -305,24 +327,46 @@ function initCareersForm() {
     const form = document.getElementById('careersForm');
     if (!form) return;
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         const btn = form.querySelector('button[type="submit"]');
         const originalText = btn.innerHTML;
 
         btn.innerHTML = `
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-            Solicitud enviada
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="spinner"><circle cx="12" cy="12" r="10" stroke-dasharray="31.4" stroke-dashoffset="10"/></svg>
+            Enviando...
         `;
-        btn.style.background = '#22c55e';
         btn.disabled = true;
+
+        try {
+            const formData = new FormData(form);
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            });
+            const data = await response.json();
+
+            if (data.success) {
+                btn.innerHTML = `
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                    Solicitud enviada
+                `;
+                btn.style.background = '#22c55e';
+                form.reset();
+            } else {
+                throw new Error(data.message || 'Error al enviar');
+            }
+        } catch (err) {
+            btn.innerHTML = `Error al enviar. Intenta de nuevo.`;
+            btn.style.background = '#ef4444';
+            console.error('Error en formulario de empleo:', err);
+        }
 
         setTimeout(() => {
             btn.innerHTML = originalText;
             btn.style.background = '';
             btn.disabled = false;
-            form.reset();
         }, 3000);
     });
 }
