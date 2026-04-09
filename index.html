@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro Cambiario Tara | Compra y Venta de Divisas</title>
+    <meta name="description" content="Centro Cambiario Tara - Tu centro de confianza para compra y venta de divisas. Los mejores tipos de cambio en tiempo real.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container navbar__container">
+            <a href="#" class="navbar__logo">
+                <div class="navbar__logo-icon">
+                    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2.5"/>
+                        <path d="M12 20h16M20 12v16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="20" cy="20" r="8" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+                    </svg>
+                </div>
+                <div class="navbar__logo-text">
+                    <span class="navbar__logo-name">TARA</span>
+                    <span class="navbar__logo-tagline">Centro Cambiario</span>
+                </div>
+            </a>
+            <ul class="navbar__menu" id="navMenu">
+                <li><a href="#inicio" class="navbar__link active">Inicio</a></li>
+                <li><a href="#divisas" class="navbar__link">Divisas</a></li>
+                <li><a href="#servicios" class="navbar__link">Servicios</a></li>
+                <li><a href="#nosotros" class="navbar__link">Nosotros</a></li>
+                <li><a href="#contacto" class="navbar__link">Contacto</a></li>
+            </ul>
+            <button class="navbar__toggle" id="navToggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero__bg">
+            <div class="hero__gradient"></div>
+            <div class="hero__particles" id="particles"></div>
+        </div>
+        <div class="container hero__container">
+            <div class="hero__content">
+                <div class="hero__badge">
+                    <span class="hero__badge-dot"></span>
+                    Tipos de cambio actualizados
+                </div>
+                <h1 class="hero__title">
+                    Compra y venta de
+                    <span class="hero__title-highlight">divisas</span>
+                    al mejor tipo de cambio
+                </h1>
+                <p class="hero__subtitle">
+                    En Centro Cambiario Tara te ofrecemos las mejores tasas del mercado con servicio rápido, seguro y confiable.
+                </p>
+                <div class="hero__actions">
+                    <a href="#divisas" class="btn btn--primary btn--lg">
+                        Ver tipos de cambio
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7.8H7.8"/></svg>
+                    </a>
+                    <a href="#contacto" class="btn btn--outline btn--lg">Contáctanos</a>
+                </div>
+            </div>
+            <div class="hero__rates">
+                <div class="rates-card">
+                    <div class="rates-card__header">
+                        <h3 class="rates-card__title">Tipo de Cambio Hoy</h3>
+                        <span class="rates-card__date" id="currentDate"></span>
+                    </div>
+                    <div class="rates-card__body">
+                        <div class="rate-row rate-row--main">
+                            <div class="rate-row__currency">
+                                <div class="rate-row__flag rate-row__flag--usd">USD</div>
+                                <div class="rate-row__info">
+                                    <span class="rate-row__name">Dólar Americano</span>
+                                    <span class="rate-row__code">USD / MXN</span>
+                                </div>
+                            </div>
+                            <div class="rate-row__prices">
+                                <div class="rate-row__price">
+                                    <span class="rate-row__label">Compra</span>
+                                    <span class="rate-row__value" id="usdBuy">$19.80</span>
+                                </div>
+                                <div class="rate-row__price">
+                                    <span class="rate-row__label">Venta</span>
+                                    <span class="rate-row__value" id="usdSell">$20.30</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rate-row">
+                            <div class="rate-row__currency">
+                                <div class="rate-row__flag rate-row__flag--eur">EUR</div>
+                                <div class="rate-row__info">
+                                    <span class="rate-row__name">Euro</span>
+                                    <span class="rate-row__code">EUR / MXN</span>
+                                </div>
+                            </div>
+                            <div class="rate-row__prices">
+                                <div class="rate-row__price">
+                                    <span class="rate-row__label">Compra</span>
+                                    <span class="rate-row__value" id="eurBuy">$21.50</span>
+                                </div>
+                                <div class="rate-row__price">
+                                    <span class="rate-row__label">Venta</span>
+                                    <span class="rate-row__value" id="eurSell">$22.10</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rate-row">
+                            <div class="rate-row__currency">
+                                <div class="rate-row__flag rate-row__flag--cad">CAD</div>
+                                <div class="rate-row__info">
+                                    <span class="rate-row__name">Dólar Canadiense</span>
+                                    <span class="rate-row__code">CAD / MXN</span>
+                                </div>
+                            </div>
+                            <div class="rate-row__prices">
+                                <div class="rate-row__price">
+                                    <span class="rate-row__label">Compra</span>
+                                    <span class="rate-row__value" id="cadBuy">$14.20</span>
+                                </div>
+                                <div class="rate-row__price">
+                                    <span class="rate-row__label">Venta</span>
+                                    <span class="rate-row__value" id="cadSell">$14.80</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rates-card__footer">
+                        <p>* Tipos de cambio sujetos a cambio sin previo aviso</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero__scroll">
+            <a href="#divisas" class="scroll-indicator">
+                <span>Descubre más</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Currency Calculator Section -->
+    <section class="calculator" id="divisas">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Calculadora</span>
+                <h2 class="section-title">Convierte tus divisas</h2>
+                <p class="section-subtitle">Calcula rápidamente el monto de tu operación con nuestros tipos de cambio actuales.</p>
+            </div>
+            <div class="calculator__card">
+                <div class="calculator__form">
+                    <div class="calculator__field">
+                        <label class="calculator__label">Tienes</label>
+                        <div class="calculator__input-group">
+                            <input type="number" class="calculator__input" id="calcFrom" value="1000" min="0" step="0.01">
+                            <select class="calculator__select" id="calcFromCurrency">
+                                <option value="USD">USD - Dólar</option>
+                                <option value="EUR">EUR - Euro</option>
+                                <option value="MXN" selected>MXN - Peso</option>
+                                <option value="CAD">CAD - Dólar Canadiense</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="calculator__swap" id="calcSwap" aria-label="Intercambiar divisas">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16V4m0 0L3 8m4-4l4 4M17 8v12m0 0l4-4m-4 4l-4-4"/></svg>
+                    </button>
+                    <div class="calculator__field">
+                        <label class="calculator__label">Recibes</label>
+                        <div class="calculator__input-group">
+                            <input type="text" class="calculator__input calculator__input--result" id="calcTo" readonly>
+                            <select class="calculator__select" id="calcToCurrency">
+                                <option value="USD" selected>USD - Dólar</option>
+                                <option value="EUR">EUR - Euro</option>
+                                <option value="MXN">MXN - Peso</option>
+                                <option value="CAD">CAD - Dólar Canadiense</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="calculator__info">
+                    <p class="calculator__rate" id="calcRate">1 USD = $20.30 MXN (Venta)</p>
+                    <p class="calculator__disclaimer">* El monto final puede variar. Visítanos para obtener el tipo de cambio exacto.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="servicios">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Servicios</span>
+                <h2 class="section-title">¿Qué ofrecemos?</h2>
+                <p class="section-subtitle">Soluciones financieras rápidas y seguras para todas tus necesidades de cambio de divisas.</p>
+            </div>
+            <div class="services__grid">
+                <div class="service-card">
+                    <div class="service-card__icon">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2"/>
+                            <path d="M24 14v20M18 20c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M18 28c0 3.3 2.7 6 6 6s6-2.7 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-card__title">Compra de Dólares</h3>
+                    <p class="service-card__desc">Adquiere dólares americanos al mejor tipo de cambio del mercado. Operaciones rápidas y sin complicaciones.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-card__icon">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="6" y="14" width="36" height="24" rx="3" stroke="currentColor" stroke-width="2"/>
+                            <path d="M6 22h36" stroke="currentColor" stroke-width="2"/>
+                            <rect x="12" y="28" width="12" height="4" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-card__title">Venta de Dólares</h3>
+                    <p class="service-card__desc">Vende tus dólares con nosotros y obtén el mejor precio en pesos mexicanos. Pago inmediato garantizado.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-card__icon">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="18" cy="24" r="12" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="30" cy="24" r="12" stroke="currentColor" stroke-width="2"/>
+                            <path d="M24 16.5v15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-card__title">Euros y Más Divisas</h3>
+                    <p class="service-card__desc">Operamos con euros, dólares canadienses y otras divisas principales. Consulta disponibilidad.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-card__icon">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M24 4l5.18 10.5L40 16.27l-8 7.8 1.89 11.02L24 30.24l-9.89 4.85L16 24.07l-8-7.8 10.82-1.77z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-card__title">Mejor Tipo de Cambio</h3>
+                    <p class="service-card__desc">Monitoreamos constantemente el mercado para ofrecerte las tasas más competitivas de la zona.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-card__icon">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M24 44c11.046 0 20-8.954 20-20S35.046 4 24 4 4 12.954 4 24s8.954 20 20 20z" stroke="currentColor" stroke-width="2"/>
+                            <path d="M24 14v10l7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-card__title">Servicio Rápido</h3>
+                    <p class="service-card__desc">Realizamos tus operaciones en minutos. Sin largas esperas ni trámites complicados.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-card__icon">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M24 4L4 16v16l20 12 20-12V16L24 4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                            <path d="M20 22l4 4 8-8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-card__title">Seguro y Confiable</h3>
+                    <p class="service-card__desc">Operamos con total transparencia y estamos debidamente autorizados. Tu dinero está seguro con nosotros.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="nosotros">
+        <div class="container">
+            <div class="about__grid">
+                <div class="about__content">
+                    <span class="section-tag">Nosotros</span>
+                    <h2 class="section-title section-title--left">Tu centro cambiario de confianza</h2>
+                    <p class="about__text">
+                        En <strong>Centro Cambiario Tara</strong> nos dedicamos a brindar un servicio profesional y transparente en la compra y venta de divisas. Contamos con años de experiencia en el mercado cambiario y nos enorgullece ofrecer las mejores tasas de la zona.
+                    </p>
+                    <p class="about__text">
+                        Nuestro compromiso es ofrecerte una experiencia rápida, segura y con la mejor atención personalizada.
+                    </p>
+                    <div class="about__stats">
+                        <div class="stat">
+                            <span class="stat__number" data-count="10">0</span><span class="stat__suffix">+</span>
+                            <span class="stat__label">Años de experiencia</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat__number" data-count="50000">0</span><span class="stat__suffix">+</span>
+                            <span class="stat__label">Operaciones realizadas</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat__number" data-count="100">0</span><span class="stat__suffix">%</span>
+                            <span class="stat__label">Clientes satisfechos</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about__visual">
+                    <div class="about__card">
+                        <div class="about__card-icon">
+                            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="2"/>
+                                <path d="M32 18v28M22 24c0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10-10 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                                <path d="M22 38c0 5.5 4.5 10 10 10s10-4.5 10-10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h4>Autorizados por CNBV</h4>
+                        <p>Operamos bajo la regulación de la Comisión Nacional Bancaria y de Valores</p>
+                    </div>
+                    <div class="about__values">
+                        <div class="value-item">
+                            <div class="value-item__icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            </div>
+                            <div>
+                                <h5>Seguridad</h5>
+                                <p>Protegemos cada transacción</p>
+                            </div>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-item__icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                            </div>
+                            <div>
+                                <h5>Rapidez</h5>
+                                <p>Operaciones en minutos</p>
+                            </div>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-item__icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                            </div>
+                            <div>
+                                <h5>Confianza</h5>
+                                <p>Miles de clientes nos respaldan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Contacto</span>
+                <h2 class="section-title">Visítanos o contáctanos</h2>
+                <p class="section-subtitle">Estamos listos para atenderte. Ven a nuestra sucursal o comunícate con nosotros.</p>
+            </div>
+            <div class="contact__grid">
+                <div class="contact__info">
+                    <div class="contact-item">
+                        <div class="contact-item__icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                        <div>
+                            <h4>Dirección</h4>
+                            <p>Visítanos en nuestra sucursal</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item__icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                        </div>
+                        <div>
+                            <h4>Teléfono</h4>
+                            <p>Llámanos para cotizar</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item__icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@centrocambiariotara.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item__icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        </div>
+                        <div>
+                            <h4>Horario</h4>
+                            <p>Lunes a Viernes: 9:00 - 18:00</p>
+                            <p>Sábado: 9:00 - 14:00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact__form-wrapper">
+                    <form class="contact__form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nombre completo</label>
+                            <input type="text" id="name" name="name" required placeholder="Tu nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo electrónico</label>
+                            <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Teléfono</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(000) 000-0000">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" name="message" rows="4" required placeholder="¿En qué podemos ayudarte?"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full">
+                            Enviar mensaje
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__top">
+                <div class="footer__brand">
+                    <a href="#" class="navbar__logo">
+                        <div class="navbar__logo-icon">
+                            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2.5"/>
+                                <path d="M12 20h16M20 12v16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <circle cx="20" cy="20" r="8" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+                            </svg>
+                        </div>
+                        <div class="navbar__logo-text">
+                            <span class="navbar__logo-name">TARA</span>
+                            <span class="navbar__logo-tagline">Centro Cambiario</span>
+                        </div>
+                    </a>
+                    <p class="footer__desc">Tu centro de confianza para compra y venta de divisas al mejor tipo de cambio.</p>
+                </div>
+                <div class="footer__links">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#divisas">Divisas</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer__links">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="#servicios">Compra de dólares</a></li>
+                        <li><a href="#servicios">Venta de dólares</a></li>
+                        <li><a href="#servicios">Cambio de euros</a></li>
+                        <li><a href="#servicios">Otras divisas</a></li>
+                    </ul>
+                </div>
+                <div class="footer__links">
+                    <h4>Horario</h4>
+                    <ul>
+                        <li>Lunes a Viernes</li>
+                        <li>9:00 AM - 6:00 PM</li>
+                        <li>Sábado</li>
+                        <li>9:00 AM - 2:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; <span id="year"></span> Centro Cambiario Tara. Todos los derechos reservados.</p>
+                <div class="footer__social">
+                    <a href="#" aria-label="Facebook" class="social-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="#" aria-label="Instagram" class="social-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                    </a>
+                    <a href="#" aria-label="WhatsApp" class="social-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/" class="whatsapp-float" aria-label="Contáctanos por WhatsApp" target="_blank" rel="noopener">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
