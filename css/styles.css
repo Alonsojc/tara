@@ -234,6 +234,17 @@ button {
     z-index: 1001;
 }
 
+.navbar__logo-img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+}
+
+.navbar__logo-img--footer {
+    height: 45px;
+    filter: brightness(0) invert(1);
+}
+
 .navbar__logo-icon {
     width: 42px;
     height: 42px;
