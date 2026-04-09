@@ -708,7 +708,8 @@ button {
 
 .calculator__form {
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
+    align-items: stretch;
     gap: 16px;
 }
 
@@ -783,6 +784,7 @@ button {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    align-self: center;
     transition: all var(--transition-base);
     margin-bottom: 0;
 }
@@ -1630,19 +1632,6 @@ button {
 
     .calculator__card {
         padding: 28px;
-    }
-
-    .calculator__form {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .calculator__swap {
-        align-self: center;
-    }
-
-    .calculator__select {
-        min-width: 130px;
     }
 
     .services__grid {
