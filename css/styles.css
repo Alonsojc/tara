@@ -1321,9 +1321,56 @@ button {
 }
 
 .branch-card--map {
-    padding: 0;
-    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     min-height: 300px;
+}
+
+.branch-card__map-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    padding: 24px;
+}
+
+.branch-card__map-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 4px 0 0;
+}
+
+.branch-card__map-text {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.branch-card__map-locations {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin: 8px 0;
+}
+
+.branch-card__map-locations span {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.btn--sm {
+    padding: 10px 24px;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .branch-card__header {
