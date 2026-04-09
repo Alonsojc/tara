@@ -213,7 +213,7 @@ function initCalculator() {
 /* --- Scroll Reveal --- */
 function initScrollReveal() {
     const elements = document.querySelectorAll(
-        '.service-card, .contact-item, .value-item, .stat, .about__card, .calculator__card, .contact__form-wrapper, .section-header'
+        '.service-card, .branch-card, .contact-item, .value-item, .stat, .about__card, .calculator__card, .contact__form-wrapper, .section-header'
     );
 
     elements.forEach(el => el.classList.add('reveal'));
