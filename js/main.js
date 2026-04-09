@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavbar();
     initMobileMenu();
     initDate();
-    initCalculator();
+    initExchangeRates();
     initScrollReveal();
     initCounters();
     initContactForm();
@@ -80,6 +80,70 @@ function initDate() {
     }
 }
 
+/* --- Exchange Rates API --- */
+// Rates in MXN (1 foreign unit = X MXN), updated by API
+const exchangeRates = {
+    USD: null,
+    EUR: null,
+    CAD: null
+};
+
+async function initExchangeRates() {
+    const API_URL = 'https://open.er-api.com/v6/latest/USD';
+
+    try {
+        const response = await fetch(API_URL);
+        const data = await response.json();
+
+        if (data.result !== 'success') throw new Error('API response error');
+
+        const mxn = data.rates.MXN;
+        const eur = data.rates.EUR;
+        const cad = data.rates.CAD;
+
+        exchangeRates.USD = mxn;
+        exchangeRates.EUR = mxn / eur;
+        exchangeRates.CAD = mxn / cad;
+
+        // Update rates card
+        updateRateEl('usdRate', exchangeRates.USD);
+        updateRateEl('eurRate', exchangeRates.EUR);
+        updateRateEl('cadRate', exchangeRates.CAD);
+
+        // Show last update time
+        const updateEl = document.getElementById('ratesUpdate');
+        if (updateEl) {
+            const date = new Date(data.time_last_update_utc);
+            updateEl.textContent = 'Actualizado: ' + date.toLocaleDateString('es-MX', {
+                day: 'numeric', month: 'long', year: 'numeric'
+            });
+        }
+    } catch (err) {
+        console.error('Error al obtener tipos de cambio:', err);
+        // Fallback values
+        exchangeRates.USD = 20.00;
+        exchangeRates.EUR = 21.80;
+        exchangeRates.CAD = 14.50;
+
+        updateRateEl('usdRate', exchangeRates.USD);
+        updateRateEl('eurRate', exchangeRates.EUR);
+        updateRateEl('cadRate', exchangeRates.CAD);
+
+        const updateEl = document.getElementById('ratesUpdate');
+        if (updateEl) {
+            updateEl.textContent = 'No se pudo actualizar. Mostrando valores aproximados.';
+        }
+    }
+
+    // Initialize calculator after rates are loaded
+    initCalculator();
+}
+
+function updateRateEl(id, rate) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = '$' + rate.toFixed(2);
+}
+
 /* --- Currency Calculator --- */
 function initCalculator() {
     const fromInput = document.getElementById('calcFrom');
@@ -89,29 +153,11 @@ function initCalculator() {
     const swapBtn = document.getElementById('calcSwap');
     const rateDisplay = document.getElementById('calcRate');
 
-    // Exchange rates (MXN as base)
-    const rates = {
-        MXN: 1,
-        USD: 0.0493,  // 1 MXN = 0.0493 USD (compra)
-        EUR: 0.0465,  // 1 MXN = 0.0465 EUR
-        CAD: 0.0704   // 1 MXN = 0.0704 CAD
-    };
-
-    // Sell rates (what the customer gets when buying foreign currency)
-    const sellRates = {
-        MXN: 1,
-        USD: 20.30,
-        EUR: 22.10,
-        CAD: 14.80
-    };
-
-    // Buy rates (what the customer gets when selling foreign currency)
-    const buyRates = {
-        MXN: 1,
-        USD: 19.80,
-        EUR: 21.50,
-        CAD: 14.20
-    };
+    // Rates: 1 unit of currency = X MXN (interbancario)
+    function getRateMXN(currency) {
+        if (currency === 'MXN') return 1;
+        return exchangeRates[currency] || 1;
+    }
 
     function calculate() {
         const amount = parseFloat(fromInput.value) || 0;
@@ -123,24 +169,21 @@ function initCalculator() {
 
         if (from === to) {
             result = amount;
-            rateText = `1 ${from} = 1 ${to}`;
-        } else if (from === 'MXN') {
-            // Customer has MXN, wants foreign currency → sell rate
-            const rate = sellRates[to];
-            result = amount / rate;
-            rateText = `1 ${to} = $${rate.toFixed(2)} MXN (Venta)`;
-        } else if (to === 'MXN') {
-            // Customer has foreign currency, wants MXN → buy rate
-            const rate = buyRates[from];
-            result = amount * rate;
-            rateText = `1 ${from} = $${rate.toFixed(2)} MXN (Compra)`;
+            rateText = '1 ' + from + ' = 1 ' + to;
         } else {
-            // Cross rate: foreign → MXN → foreign
-            const buyRate = buyRates[from];
-            const sellRate = sellRates[to];
-            const mxnAmount = amount * buyRate;
-            result = mxnAmount / sellRate;
-            rateText = `1 ${from} = ${(buyRate / sellRate).toFixed(4)} ${to}`;
+            // Convert: from → MXN → to
+            const fromToMXN = getRateMXN(from);
+            const toToMXN = getRateMXN(to);
+            const rate = fromToMXN / toToMXN;
+            result = amount * rate;
+
+            if (to === 'MXN') {
+                rateText = '1 ' + from + ' = $' + fromToMXN.toFixed(2) + ' MXN';
+            } else if (from === 'MXN') {
+                rateText = '1 ' + to + ' = $' + toToMXN.toFixed(2) + ' MXN';
+            } else {
+                rateText = '1 ' + from + ' = ' + rate.toFixed(4) + ' ' + to;
+            }
         }
 
         toInput.value = result.toLocaleString('es-MX', {
@@ -149,7 +192,7 @@ function initCalculator() {
         });
 
         if (rateDisplay) {
-            rateDisplay.textContent = rateText;
+            rateDisplay.textContent = rateText + ' (interbancario)';
         }
     }
 
@@ -164,7 +207,6 @@ function initCalculator() {
         calculate();
     });
 
-    // Initial calculation
     calculate();
 }
 

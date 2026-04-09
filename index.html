@@ -53,7 +53,7 @@
             <div class="hero__content">
                 <div class="hero__badge">
                     <span class="hero__badge-dot"></span>
-                    Tipos de cambio actualizados
+                    Tipo de cambio interbancario en tiempo real
                 </div>
                 <h1 class="hero__title">
                     Compra y venta de
@@ -74,7 +74,10 @@
             <div class="hero__rates">
                 <div class="rates-card">
                     <div class="rates-card__header">
-                        <h3 class="rates-card__title">Tipo de Cambio Hoy</h3>
+                        <div class="rates-card__header-top">
+                            <h3 class="rates-card__title">Tipo de Cambio Interbancario</h3>
+                            <span class="rates-card__ref-badge">Referencia</span>
+                        </div>
                         <span class="rates-card__date" id="currentDate"></span>
                     </div>
                     <div class="rates-card__body">
@@ -88,12 +91,7 @@
                             </div>
                             <div class="rate-row__prices">
                                 <div class="rate-row__price">
-                                    <span class="rate-row__label">Compra</span>
-                                    <span class="rate-row__value" id="usdBuy">$19.80</span>
-                                </div>
-                                <div class="rate-row__price">
-                                    <span class="rate-row__label">Venta</span>
-                                    <span class="rate-row__value" id="usdSell">$20.30</span>
+                                    <span class="rate-row__value" id="usdRate">--</span>
                                 </div>
                             </div>
                         </div>
@@ -107,12 +105,7 @@
                             </div>
                             <div class="rate-row__prices">
                                 <div class="rate-row__price">
-                                    <span class="rate-row__label">Compra</span>
-                                    <span class="rate-row__value" id="eurBuy">$21.50</span>
-                                </div>
-                                <div class="rate-row__price">
-                                    <span class="rate-row__label">Venta</span>
-                                    <span class="rate-row__value" id="eurSell">$22.10</span>
+                                    <span class="rate-row__value" id="eurRate">--</span>
                                 </div>
                             </div>
                         </div>
@@ -126,18 +119,14 @@
                             </div>
                             <div class="rate-row__prices">
                                 <div class="rate-row__price">
-                                    <span class="rate-row__label">Compra</span>
-                                    <span class="rate-row__value" id="cadBuy">$14.20</span>
-                                </div>
-                                <div class="rate-row__price">
-                                    <span class="rate-row__label">Venta</span>
-                                    <span class="rate-row__value" id="cadSell">$14.80</span>
+                                    <span class="rate-row__value" id="cadRate">--</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="rates-card__footer">
-                        <p>* Tipos de cambio sujetos a cambio sin previo aviso</p>
+                        <p class="rates-card__update" id="ratesUpdate"></p>
+                        <p class="rates-card__disclaimer">Tipo de cambio interbancario de referencia. El tipo de cambio en sucursal puede variar. Consulta en sucursal o por WhatsApp antes de tu visita.</p>
                     </div>
                 </div>
             </div>
@@ -189,8 +178,8 @@
                     </div>
                 </div>
                 <div class="calculator__info">
-                    <p class="calculator__rate" id="calcRate">1 USD = $20.30 MXN (Venta)</p>
-                    <p class="calculator__disclaimer">* El monto final puede variar. Visítanos para obtener el tipo de cambio exacto.</p>
+                    <p class="calculator__rate" id="calcRate">Cargando tipo de cambio...</p>
+                    <p class="calculator__disclaimer">* Cálculo basado en tipo de cambio interbancario de referencia. El tipo de cambio en sucursal puede variar.</p>
                 </div>
             </div>
         </div>
