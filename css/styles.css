@@ -897,6 +897,16 @@ button {
     box-shadow: 0 4px 12px rgba(245, 158, 11, 0.15);
 }
 
+.currency-chip--silver {
+    border-color: #e5e7eb;
+    background: linear-gradient(135deg, #f3f4f6, #fff);
+}
+
+.currency-chip--silver:hover {
+    border-color: #9ca3af;
+    box-shadow: 0 4px 12px rgba(107, 114, 128, 0.15);
+}
+
 .currency-chip__flag {
     width: 40px;
     height: 40px;
@@ -921,6 +931,7 @@ button {
 .currency-chip__flag--jpy { background: linear-gradient(135deg, #b71c1c, #e8e8e8); color: #b71c1c; }
 .currency-chip__flag--cny { background: linear-gradient(135deg, #c62828, #e53935); }
 .currency-chip__flag--gold { background: linear-gradient(135deg, #b45309, #d97706); }
+.currency-chip__flag--silver { background: linear-gradient(135deg, #6b7280, #9ca3af); }
 
 .currency-chip__name {
     font-size: 0.88rem;
