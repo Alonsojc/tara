@@ -1320,6 +1320,12 @@ button {
     box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.3), 0 8px 32px rgba(59, 130, 246, 0.1);
 }
 
+.branch-card--map {
+    padding: 0;
+    overflow: hidden;
+    min-height: 300px;
+}
+
 .branch-card__header {
     display: flex;
     align-items: center;
