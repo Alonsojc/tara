@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollReveal();
     initCounters();
     initContactForm();
+    initCareersForm();
     initParticles();
     initSmoothScroll();
 });
@@ -213,7 +214,7 @@ function initCalculator() {
 /* --- Scroll Reveal --- */
 function initScrollReveal() {
     const elements = document.querySelectorAll(
-        '.service-card, .branch-card, .contact-item, .value-item, .stat, .about__card, .calculator__card, .contact__form-wrapper, .section-header'
+        '.service-card, .branch-card, .contact-item, .value-item, .stat, .about__card, .calculator__card, .contact__form-wrapper, .careers__content, .careers__form-wrapper, .section-header'
     );
 
     elements.forEach(el => el.classList.add('reveal'));
@@ -286,6 +287,33 @@ function initContactForm() {
         btn.innerHTML = `
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
             Mensaje enviado
+        `;
+        btn.style.background = '#22c55e';
+        btn.disabled = true;
+
+        setTimeout(() => {
+            btn.innerHTML = originalText;
+            btn.style.background = '';
+            btn.disabled = false;
+            form.reset();
+        }, 3000);
+    });
+}
+
+/* --- Careers Form --- */
+function initCareersForm() {
+    const form = document.getElementById('careersForm');
+    if (!form) return;
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const btn = form.querySelector('button[type="submit"]');
+        const originalText = btn.innerHTML;
+
+        btn.innerHTML = `
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Solicitud enviada
         `;
         btn.style.background = '#22c55e';
         btn.disabled = true;
