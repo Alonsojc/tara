@@ -306,32 +306,83 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About Section (original) -->
     <section class="about" id="nosotros">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Nosotros</span>
-                <h2 class="section-title">Centro Cambiario Tara</h2>
-                <p class="section-subtitle">Fundado en 1998. Registrado ante la CNBV con el No. 02267.</p>
+            <div class="about__grid">
+                <div class="about__content">
+                    <span class="section-tag">Nosotros</span>
+                    <h2 class="section-title section-title--left">Tu centro cambiario de confianza</h2>
+                    <p class="about__text">
+                        En <strong>Centro Cambiario Tara</strong> nos dedicamos a brindar un servicio profesional y transparente en la compra y venta de divisas. Fundados en 1998 y registrados ante la CNBV (Reg. No. 02267), contamos con más de 25 años de experiencia en el mercado cambiario.
+                    </p>
+                    <p class="about__text">
+                        Nuestro compromiso es ofrecerte una experiencia rápida, segura y con la mejor atención personalizada en cualquiera de nuestras 5 sucursales.
+                    </p>
+                    <div class="about__stats">
+                        <div class="stat">
+                            <span class="stat__number" data-count="25">0</span><span class="stat__suffix">+</span>
+                            <span class="stat__label">Años de experiencia</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat__number" data-count="50000">0</span><span class="stat__suffix">+</span>
+                            <span class="stat__label">Operaciones realizadas</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat__number" data-count="5">0</span><span class="stat__suffix"></span>
+                            <span class="stat__label">Sucursales</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about__visual">
+                    <div class="about__card">
+                        <div class="about__card-icon">
+                            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="2"/>
+                                <path d="M32 18v28M22 24c0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10-10 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                                <path d="M22 38c0 5.5 4.5 10 10 10s10-4.5 10-10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h4>Autorizados por CNBV</h4>
+                        <p>Operamos bajo la regulación de la Comisión Nacional Bancaria y de Valores</p>
+                    </div>
+                    <div class="about__values">
+                        <div class="value-item">
+                            <div class="value-item__icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            </div>
+                            <div>
+                                <h5>Seguridad</h5>
+                                <p>Protegemos cada transacción</p>
+                            </div>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-item__icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                            </div>
+                            <div>
+                                <h5>Rapidez</h5>
+                                <p>Operaciones en minutos</p>
+                            </div>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-item__icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                            </div>
+                            <div>
+                                <h5>Confianza</h5>
+                                <p>Miles de clientes nos respaldan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Stats -->
-            <div class="about__stats">
-                <div class="stat">
-                    <span class="stat__number" data-count="25">0</span><span class="stat__suffix">+</span>
-                    <span class="stat__label">Años de experiencia</span>
-                </div>
-                <div class="stat">
-                    <span class="stat__number" data-count="5">0</span><span class="stat__suffix"></span>
-                    <span class="stat__label">Sucursales</span>
-                </div>
-                <div class="stat">
-                    <span class="stat__number" data-count="50000">0</span><span class="stat__suffix">+</span>
-                    <span class="stat__label">Operaciones realizadas</span>
-                </div>
-            </div>
-
-            <!-- Misión y Visión -->
+    <!-- Misión, Visión y Valores -->
+    <section class="mvv">
+        <div class="container">
             <div class="about__mv-grid">
                 <div class="about__mv-card">
                     <div class="about__mv-icon">
@@ -348,8 +399,6 @@
                     <p class="about__mv-text">Consolidarnos en el sector financiero como una empresa preferida por su servicio personalizado, procesos ágiles y nuestro capital humano como pilar fundamental.</p>
                 </div>
             </div>
-
-            <!-- Valores -->
             <div class="about__valores">
                 <h3 class="about__valores-title">Nuestros Valores</h3>
                 <div class="about__valores-grid">
