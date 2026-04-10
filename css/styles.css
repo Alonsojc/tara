@@ -1827,6 +1827,12 @@ button {
     font-size: 0.9rem;
     color: var(--gray-600);
     line-height: 1.7;
+    animation: faqOpen 0.3s ease;
+}
+
+@keyframes faqOpen {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .faq__answer ul {
