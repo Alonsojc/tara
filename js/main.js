@@ -214,7 +214,7 @@ function initCalculator() {
 /* --- Scroll Reveal --- */
 function initScrollReveal() {
     const elements = document.querySelectorAll(
-        '.service-card, .currency-chip, .branch-card, .contact-item, .value-item, .valor-card, .stat, .about__card, .about__mv-card, .calculator__card, .contact__form-wrapper, .careers__content, .careers__form-wrapper, .section-header'
+        '.service-card, .currency-chip, .branch-card, .contact-item, .value-item, .valor-card, .stat, .about__card, .about__mv-card, .calculator__card, .contact__form-wrapper, .careers__content, .careers__form-wrapper, .faq__item, .section-header'
     );
 
     elements.forEach(el => el.classList.add('reveal'));
