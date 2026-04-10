@@ -20,6 +20,14 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" type="image/jpeg" href="assets/logo-tara.jpg">
     <link rel="apple-touch-icon" href="assets/logo-tara.jpg">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=TU_GA_ID_AQUI"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'TU_GA_ID_AQUI');
+    </script>
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -81,6 +89,7 @@
                 <li><a href="#sucursales" class="navbar__link">Sucursales</a></li>
                 <li><a href="#faq" class="navbar__link">FAQ</a></li>
                 <li><a href="#contacto" class="navbar__link">Contacto</a></li>
+                <li><a href="en/" class="navbar__link navbar__lang">EN</a></li>
             </ul>
             <button class="navbar__toggle" id="navToggle" aria-label="Abrir menú">
                 <span></span>
@@ -857,6 +866,48 @@
                         <p>El tipo de cambio mostrado en nuestra página es el <strong>interbancario de referencia</strong> y no constituye una oferta vinculante. El tipo de cambio aplicable será el vigente al momento de realizar tu operación en sucursal. Te recomendamos consultar vía WhatsApp antes de tu visita.</p>
                     </div>
                 </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios Section -->
+    <section class="testimonials" id="testimonios">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Testimonios</span>
+                <h2 class="section-title">Lo que dicen nuestros usuarios</h2>
+            </div>
+            <div class="testimonials__grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-card__stars">
+                        <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+                    </div>
+                    <p class="testimonial-card__text">"Siempre me dan un excelente tipo de cambio y el servicio es muy rápido. Llevo años cambiando con ellos en la sucursal de Polanco."</p>
+                    <div class="testimonial-card__author">
+                        <span class="testimonial-card__name">Roberto M.</span>
+                        <span class="testimonial-card__branch">Sucursal Polanco</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-card__stars">
+                        <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+                    </div>
+                    <p class="testimonial-card__text">"Muy buena atención y confiable. Me gusta que puedo consultar el tipo de cambio por WhatsApp antes de ir. Lo recomiendo ampliamente."</p>
+                    <div class="testimonial-card__author">
+                        <span class="testimonial-card__name">Laura G.</span>
+                        <span class="testimonial-card__branch">Sucursal Valle Dorado</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-card__stars">
+                        <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+                    </div>
+                    <p class="testimonial-card__text">"He comprado monedas de oro aquí varias veces. Son muy profesionales y transparentes con los precios. Totalmente recomendados."</p>
+                    <div class="testimonial-card__author">
+                        <span class="testimonial-card__name">Carlos A.</span>
+                        <span class="testimonial-card__branch">Sucursal Arboledas</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

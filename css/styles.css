@@ -1759,6 +1759,80 @@ button {
 }
 
 /* ============================================
+   TESTIMONIALS
+   ============================================ */
+.testimonials {
+    padding: 80px 0;
+}
+
+.testimonials__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.testimonial-card {
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: all var(--transition-base);
+}
+
+.testimonial-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
+.testimonial-card__stars {
+    display: flex;
+    gap: 2px;
+    color: #f59e0b;
+    font-size: 1.1rem;
+}
+
+.testimonial-card__text {
+    font-size: 0.92rem;
+    color: var(--gray-600);
+    line-height: 1.7;
+    font-style: italic;
+    flex: 1;
+}
+
+.testimonial-card__author {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    border-top: 1px solid var(--gray-100);
+    padding-top: 14px;
+}
+
+.testimonial-card__name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--gray-800);
+}
+
+.testimonial-card__branch {
+    font-size: 0.8rem;
+    color: var(--gray-400);
+}
+
+/* --- Language Toggle --- */
+.navbar__lang {
+    background: rgba(59, 130, 246, 0.1);
+    padding: 4px 10px !important;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+/* ============================================
    FAQ
    ============================================ */
 .faq {
@@ -2105,6 +2179,10 @@ button {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .testimonials__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .careers__inner {
         grid-template-columns: 1fr;
         gap: 48px;
@@ -2172,6 +2250,10 @@ button {
     }
 
     .branches__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonials__grid {
         grid-template-columns: 1fr;
     }
 
